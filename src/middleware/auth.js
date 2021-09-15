@@ -12,7 +12,7 @@ const auth = async (req, res, next) => {
         token = token.replace('Bearer ', '')
 
         const decoded = jwtLib.verify(token, process.env.JWT_SECRET);
-        const user = await User.findOne({ _id: decoded.id, 'tokens.token': token });
+        const user = await User.findOne({ _id: decoded._id, 'tokens.token': token });
 
         if(!user) {
             throw new Error('Please Authenticate');

@@ -5,12 +5,9 @@ const userRouter = require('./routers/user');
 const taskRouter = require('./routers/task');
 
 const app = expressLib();
-const port = process.env.PORT || 3000;
 
 app.use(expressLib.json());
 app.use(userRouter);
 app.use(taskRouter);
 
-app.listen(port, () => {
-    console.log('Server is up on port ' + port);
-});
+module.exports = app;

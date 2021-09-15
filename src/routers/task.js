@@ -30,6 +30,7 @@ router.get('/api/tasks', auth, async (req, res) => {
         const [field, order] = req.query.sortBy.split(':');
         sort[field] = order === 'desc' ? -1 : 1;
     }
+    
     try {
         await req.user.populate({
             path: 'tasks',

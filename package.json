@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "env-cmd --file=\"./config/dev.env\" nodemon src/app.js"
+    "start": "node src/index.js",
+    "dev": "env-cmd --file=\"./config/dev.env\" nodemon src/index.js",
+    "test": "env-cmd --file=\"./config/test.env\" jest --watch --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +27,8 @@
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
-    "nodemon": "^2.0.12"
+    "jest": "^27.2.0",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6"
   }
 }
